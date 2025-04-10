@@ -24,16 +24,16 @@ jobs:
           echo "📦 Verifying Bicep files exist..."
           required_files=(
             "main.bicep"
-            "infra/Loganalyticworkspace.bicep"
-            "infra/applicationinsights.bicep"
-            "infra/keyvault.bicep"
-            "infra/storageaccount.bicep"
-            "infra/blobservice.bicep"
-            "infra/Staticwebsite.bicep"
-            "infra/appserviceplan.bicep"
-            "infra/appservice.bicep"
-            "infra/Managedidentity.bicep"
-            "infra/Grafana.bicep"
+            "Infra/Loganalyticworkspace.bicep"
+            "Infra/applicationinsights.bicep"
+            "Infra/keyvault.bicep"
+            "Infra/storageaccount.bicep"
+            "Infra/blobservice.bicep"
+            "Infra/Staticwebsite.bicep"
+            "Infra/appserviceplan.bicep"
+            "Infra/appservice.bicep"
+            "Infra/Managedidentity.bicep"
+            "Infra/Grafana.bicep"
           )
 
           for file in "${required_files[@]}"; do
