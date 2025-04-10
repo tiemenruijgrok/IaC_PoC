@@ -17,7 +17,7 @@ The Bicep modules are stored in the `infra/` directory and include:
 - `managedidentity.bicep` – User-assigned Managed Identity
 - `grafana.bicep` – Azure Managed Grafana instance
 
-## 🚀 Deploy via GitHub Actions
+## 🚀 Deploy via GitHub Actionss
 
 This repo includes a ready-to-use workflow in `.github/workflows/deploy-infra.yml`.
 
