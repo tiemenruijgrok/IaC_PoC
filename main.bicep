@@ -1,7 +1,7 @@
 // main.bicep
 
 param location string = resourceGroup().location
-param projectPrefix string = 'verifiedid2025poc'
+param projectPrefix string = 'verifiedidpoc1'
 
 module logAnalytics 'Infra/Loganalyticworkspace.bicep' = {
   name: 'logAnalyticsModule'
