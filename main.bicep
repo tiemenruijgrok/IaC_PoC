@@ -3,7 +3,7 @@
 param location string = resourceGroup().location
 param projectPrefix string = 'verifiedid'
 
-module logAnalytics 'infra/Loganalyticworkspace.bicep' = {
+module logAnalytics 'Infra/Loganalyticworkspace.bicep' = {
   name: 'logAnalyticsModule'
   params: {
     location: location
@@ -11,7 +11,7 @@ module logAnalytics 'infra/Loganalyticworkspace.bicep' = {
   }
 }
 
-module appInsights 'infra/applicationinsights.bicep' = {
+module appInsights 'Infra/applicationinsights.bicep' = {
   name: 'appInsightsModule'
   params: {
     location: location
@@ -20,7 +20,7 @@ module appInsights 'infra/applicationinsights.bicep' = {
   }
 }
 
-module keyVault 'infra/keyvault.bicep' = {
+module keyVault 'Infra/keyvault.bicep' = {
   name: 'keyVaultModule'
   params: {
     location: location
@@ -28,7 +28,7 @@ module keyVault 'infra/keyvault.bicep' = {
   }
 }
 
-module storageAccount 'infra/storageaccount.bicep' = {
+module storageAccount 'Infra/storageaccount.bicep' = {
   name: 'storageAccountModule'
   params: {
     location: location
@@ -36,21 +36,21 @@ module storageAccount 'infra/storageaccount.bicep' = {
   }
 }
 
-module blobService 'infra/blobservice.bicep' = {
+module blobService 'Infra/blobservice.bicep' = {
   name: 'blobServiceModule'
   params: {
     storageAccountName: storageAccount.outputs.storageAccountName
   }
 }
 
-module staticWebsite 'infra/Staticwebsite.bicep' = {
+module staticWebsite 'Infra/Staticwebsite.bicep' = {
   name: 'staticWebsiteModule'
   params: {
     storageAccountName: storageAccount.outputs.storageAccountName
   }
 }
 
-module appServicePlan 'infra/appserviceplan.bicep' = {
+module appServicePlan 'Infra/appserviceplan.bicep' = {
   name: 'appServicePlanModule'
   params: {
     location: location
@@ -58,7 +58,7 @@ module appServicePlan 'infra/appserviceplan.bicep' = {
   }
 }
 
-module appService 'infra/appservice.bicep' = {
+module appService 'Infra/appservice.bicep' = {
   name: 'appServiceModule'
   params: {
     location: location
@@ -68,7 +68,7 @@ module appService 'infra/appservice.bicep' = {
   }
 }
 
-module managedIdentity 'infra/Managedidentity.bicep' = {
+module managedIdentity 'Infra/Managedidentity.bicep' = {
   name: 'managedIdentityModule'
   params: {
     location: location
@@ -76,7 +76,7 @@ module managedIdentity 'infra/Managedidentity.bicep' = {
   }
 }
 
-module grafana 'infra/Grafana.bicep' = {
+module grafana 'Infra/Grafana.bicep' = {
   name: 'grafanaModule'
   params: {
     location: location
