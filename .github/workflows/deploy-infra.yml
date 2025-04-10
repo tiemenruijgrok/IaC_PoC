@@ -19,6 +19,31 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
+      - name: Check required Bicep files
+        run: |
+          echo "📦 Verifying Bicep files exist..."
+          required_files=(
+            "main.bicep"
+            "infra/Loganalyticworkspace.bicep"
+            "infra/applicationinsights.bicep"
+            "infra/keyvault.bicep"
+            "infra/storageaccount.bicep"
+            "infra/blobservice.bicep"
+            "infra/Staticwebsite.bicep"
+            "infra/appserviceplan.bicep"
+            "infra/appservice.bicep"
+            "infra/Managedidentity.bicep"
+            "infra/Grafana.bicep"
+          )
+
+          for file in "${required_files[@]}"; do
+            if [[ ! -f "$file" ]]; then
+              echo "❌ ERROR: Missing required file: $file"
+              exit 1
+            fi
+          done
+          echo "✅ All required files are present."
+
       - name: Azure Login
         uses: azure/login@v2
         with:
